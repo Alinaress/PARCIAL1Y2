@@ -5,6 +5,10 @@ use App\Http\Controllers\auth\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MarcaController;
+use App\Http\Controllers\Api\CategoriaController;
+use App\Http\Controllers\Api\ProveedorController;
+
+
 
 
 
@@ -14,6 +18,8 @@ Route::prefix('auth')->group(function () {
     Route::post('/refresh',[AuthenticationController::class,'refresh'])->middleware('rolePermission:Super Admin,Admin');
     Route::post('/validate-token',[AuthenticationController::class,'validatedToken']);
     Route::apiResource('marcas', MarcaController::class);
+    Route::apiResource('categorias', CategoriaController::class);
+    Route::apiResource('proveedores', ProveedorController::class);
 });
 
 Route::middleware('auth:api')->prefix('users')->group(function () {

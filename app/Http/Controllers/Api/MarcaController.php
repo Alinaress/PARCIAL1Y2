@@ -24,7 +24,14 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
-        $marca = marca::all();
+        $request->validate([
+        'nombre' => 'required|string|max:255',
+        'descripcion' => 'nullable|string'
+    ]);
+
+    $marca = Marca::create($request->all());
+
+    return response()->json($marca, 201);
     }
 
     /**
@@ -32,7 +39,8 @@ class MarcaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $marca = Marca::findOrFail($id);
+        return response()->json($marca);
     }
 
     /**
@@ -40,7 +48,15 @@ class MarcaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+        'nombre' => 'required|string|max:255',
+        'descripcion' => 'nullable|string'
+    ]);
+    $marca = Marca::findOrFail($id);
+
+    $marca->update($request->all());
+
+    return response()->json($marca);
     }
 
     /**
@@ -48,6 +64,11 @@ class MarcaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $marca = Marca::findOrFail($id);
+        $marca->delete();
+
+    return response()->json([
+        'message' => 'Marca eliminada correctamente'
+    ]);
     }
 }
