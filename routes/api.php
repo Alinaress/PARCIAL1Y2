@@ -4,6 +4,8 @@ use App\Http\Controllers\auth\RolPermissionController;
 use App\Http\Controllers\auth\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\MarcaController;
+
 
 
 Route::prefix('auth')->group(function () {
@@ -11,6 +13,7 @@ Route::prefix('auth')->group(function () {
     Route::post('/logout',[AuthenticationController::class,'logout'])->middleware('rolePermission:Super Admin,Admin');
     Route::post('/refresh',[AuthenticationController::class,'refresh'])->middleware('rolePermission:Super Admin,Admin');
     Route::post('/validate-token',[AuthenticationController::class,'validatedToken']);
+    Route::apiResource('marcas', MarcaController::class);
 });
 
 Route::middleware('auth:api')->prefix('users')->group(function () {
@@ -30,3 +33,4 @@ Route::middleware('auth:api')->prefix('rol-permisos')->group(function () {
     Route::delete('/eliminar-rol/{id}',[RolPermissionController::class,'eliminarRol'])->middleware('rolePermission:Super Admin');
     Route::delete('/eliminar-permiso',[RolPermissionController::class,'eliminarPermisos'])->middleware('rolePermission:Super Admin');
 });
+
