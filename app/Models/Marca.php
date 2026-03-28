@@ -8,6 +8,6 @@ class Marca extends Model
 {
     protected $fillable = [
     'nombre',
-    'descripcion'
+    'estado'
 ];
 }
