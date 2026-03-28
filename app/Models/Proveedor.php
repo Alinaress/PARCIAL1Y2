@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Proveedor extends Model
 {
-    protected $fillable = ['nombre', 'telefono', 'estado'];
+    protected $table = 'proveedores';
 
+    public $timestamps = false;
+
+    protected $fillable = ['nombre', 'telefono', 'estado'];
 }

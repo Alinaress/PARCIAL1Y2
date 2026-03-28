@@ -21,7 +21,7 @@ export default function Modal({ title, onClose, children }: Props) {
     >
       <div
         style={{
-          background: "#1e1e2e",
+          background: "#fff",
           borderRadius: 12,
           padding: 32,
           minWidth: 380,
@@ -29,7 +29,7 @@ export default function Modal({ title, onClose, children }: Props) {
           position: "relative",
         }}
       >
-        <h3 style={{ margin: "0 0 20px", color: "#e2e8f0", fontSize: 18 }}>
+        <h3 style={{ margin: "0 0 20px", color: "#333", fontSize: 18 }}>
           {title}
         </h3>
 
@@ -43,7 +43,7 @@ export default function Modal({ title, onClose, children }: Props) {
             right: 16,
             background: "none",
             border: "none",
-            color: "#94a3b8",
+            color: "#999",
             fontSize: 20,
             cursor: "pointer",
           }}

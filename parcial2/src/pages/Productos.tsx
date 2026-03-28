@@ -168,22 +168,22 @@ export default function Productos({ toast }: Props) {
 
       {modal && (
         <Modal title={editing ? "Editar Producto" : "Nuevo Producto"} onClose={() => setModal(false)}>
-          <input style={S.input as React.CSSProperties} placeholder="Nombre *"     value={form.nombre}      onChange={f("nombre")} />
+          <input style={S.input as React.CSSProperties} placeholder="Nombre"     value={form.nombre}      onChange={f("nombre")} />
           <input style={S.input as React.CSSProperties} placeholder="Descripción"  value={form.descripcion} onChange={f("descripcion")} />
-          <input style={S.input as React.CSSProperties} placeholder="Precio *" type="number" step="0.01" value={form.precio} onChange={f("precio")} />
+          <input style={S.input as React.CSSProperties} placeholder="Precio unitario" type="number" step="0.01" value={form.precio} onChange={f("precio")} />
 
           <select style={S.input as React.CSSProperties} value={form.categoria_id} onChange={f("categoria_id")}>
-            <option value="">-- Categoría *</option>
+            <option value="">Elige una categoria</option>
             {cats.map((c) => <option key={c.id} value={c.id}>{c.nombre}</option>)}
           </select>
 
           <select style={S.input as React.CSSProperties} value={form.marca_id} onChange={f("marca_id")}>
-            <option value="">-- Marca *</option>
+            <option value="">elige una marca</option>
             {marcas.map((m) => <option key={m.id} value={m.id}>{m.nombre}</option>)}
           </select>
 
           <select style={S.input as React.CSSProperties} value={form.proveedor_id} onChange={f("proveedor_id")}>
-            <option value="">-- Proveedor *</option>
+            <option value="">Elige un proveedor</option>
             {provs.map((p) => <option key={p.id} value={p.id}>{p.nombre}</option>)}
           </select>
 

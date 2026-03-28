@@ -104,18 +104,11 @@ useEffect(() => { load(); }, [load]);
         <Modal title={editing ? "Editar Marca" : "Nueva Marca"} onClose={() => setModal(false)}>
           <input
             style={S.input as React.CSSProperties}
-            placeholder="Nombre *"
+            placeholder="Agrega un nombre"
             value={form.nombre}
             onChange={(e) => setForm({ ...form, nombre: e.target.value })}
           />
-          <label style={{ color: "#94a3b8", fontSize: 14, display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
-            <input
-              type="checkbox"
-              checked={form.estado}
-              onChange={(e) => setForm({ ...form, estado: e.target.checked })}
-            />
-            Activo
-          </label>
+
           <button style={S.btnPrimary as React.CSSProperties} onClick={save}>
             Guardar
           </button>

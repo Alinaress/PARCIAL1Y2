@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MarcaController;
 use App\Http\Controllers\Api\CategoriaController;
 use App\Http\Controllers\Api\ProveedorController;
-
+use App\Http\Controllers\Api\ProductoController;
 
 
 
@@ -20,6 +20,7 @@ Route::prefix('auth')->group(function () {
     Route::apiResource('marcas', MarcaController::class);
     Route::apiResource('categorias', CategoriaController::class);
     Route::apiResource('proveedores', ProveedorController::class);
+    Route::apiResource('productos', ProductoController::class);
 });
 
 Route::middleware('auth:api')->prefix('users')->group(function () {
